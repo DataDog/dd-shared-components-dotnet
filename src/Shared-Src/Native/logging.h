@@ -70,11 +70,12 @@ namespace shared {
             template <typename... Args>
             static void Critical(const Args... args) { Logger<TLoggerPolicy>::Instance()->Critical(LogToString(args...)); }
 
+            static void FlushMe() { Logger<TLoggerPolicy>::Instance()->Flush(); }
             static void EnableDebug() { Logger<TLoggerPolicy>::Instance()->EnableDebugLog(); }
             static bool IsDebugEnabled() { return Logger<TLoggerPolicy>::Instance()->IsDebugLogEnabled(); }
 
-        private:
             Logger();
+        private:
             ~Logger();
             static std::string DatadogLogFilePath(const std::string& file_name_suffix);
             static std::string GetLogPath(const std::string& file_name_suffix);
@@ -138,6 +139,7 @@ namespace shared {
     template <class TLoggerPolicy>
     Logger<TLoggerPolicy>::~Logger()
     {
+        std::cout << "Logger destructor called" << std::endl;
         m_fileout->flush();
         spdlog::shutdown();
     }

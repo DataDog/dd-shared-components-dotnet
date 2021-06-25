@@ -105,6 +105,12 @@ namespace shared
             static T instance_obj;
             return &instance_obj;
         }
+
+        static std::shared_ptr<T> Instance2()
+        {
+            static std::shared_ptr<T> instance(new T());
+            return instance;
+        }
     };
 
     template <typename T>
