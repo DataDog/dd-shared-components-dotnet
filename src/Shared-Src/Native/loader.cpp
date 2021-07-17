@@ -91,16 +91,16 @@ namespace shared
             return SingletonInstance;
         }
 
-        throw std::logic_error("No Singleton instance of Loader has been created, or it has already been deleted.");
+        throw std::logic_error("No singleton instance of Loader has been created, or it has already been deleted.");
     }
 
     void Loader::DeleteSingletonInstance(void)
     {
-        Loader* SingletonInstance = Loader::s_SingletonInstance;
-        if (SingletonInstance != nullptr)
+        Loader* singletonInstance = Loader::s_SingletonInstance;
+        if (singletonInstance != nullptr)
         {
             Loader::s_SingletonInstance = nullptr;
-            delete SingletonInstance;
+            delete singletonInstance;
         }
     }
 
