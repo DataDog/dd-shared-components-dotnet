@@ -15,7 +15,7 @@ namespace Datadog.Logging.Composition
         private readonly ILogSink[] _logSinks;
 
         public AggregatedLogSink(params ILogSink[] logSinks)
-            : this((IEnumerable<ILogSink>)logSinks)
+            : this((IEnumerable<ILogSink>) logSinks)
         {
         }
 
@@ -111,7 +111,7 @@ namespace Datadog.Logging.Composition
                     }
                     else
                     {
-                        List<Exception> errorList = (List<Exception>)errorHolder;
+                        List<Exception> errorList = (List<Exception>) errorHolder;
                         errorList.Add(ex);
                     }
                 }
@@ -125,7 +125,7 @@ namespace Datadog.Logging.Composition
                 }
                 else
                 {
-                    List<Exception> errorList = (List<Exception>)errorHolder;
+                    List<Exception> errorList = (List<Exception>) errorHolder;
                     throw new AggregateException("Two or more Log sinks threw exceptions.", errorList);
                 }
             }

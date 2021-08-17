@@ -18,11 +18,15 @@ namespace Datadog.Logging.Composition
     {
         public const int RotateLogFileWhenLargerBytesDefault = 1024 * 1024 * 128;  // 128 MB
 
+#pragma warning disable IDE1006  // Runtime-initialized Constants {
         public static readonly DefaultFormat.Options DefaultFormatOptions = new DefaultFormat.Options(useUtcTimestamps: false,
                                                                                                       useNewLinesInErrorMessages: false,
                                                                                                       useNewLinesInDataNamesAndValues: false);
 
         private static readonly LogSourceInfo SelfLogSourceInfo = new LogSourceInfo(typeof(FileLogSink).FullName);
+
+        private static readonly Encoding LogTextEncoding = Encoding.UTF8;
+#pragma warning restore IDE1006  // } Runtime-initialized Constants
 
         private const string FilenameSeparatorForTimestamp = "-";
         private const string FilenameTimestampFormat = "yyyyMMdd";
@@ -31,8 +35,6 @@ namespace Datadog.Logging.Composition
         private const string FilenameExtension = "log";
 
         private const int FilenameTimestampAndIndexPartsLengthEstimate = 20;
-
-        private static readonly Encoding LogTextEncoding = Encoding.UTF8;
 
         private static readonly bool s_isWindowsFileSystem = GetIsWindowsFileSystem();
 
@@ -444,8 +446,9 @@ namespace Datadog.Logging.Composition
                     case PlatformID.MacOSX:
                         return false;
 
+                    case PlatformID.Xbox:
                     default:
-                        throw new InvalidOperationException($"Unexpected OS PlatformID: \"{platformID}\" ({((int)platformID)})");
+                        throw new InvalidOperationException($"Unexpected OS PlatformID: \"{platformID}\" ({((int) platformID)})");
                 }
             }
             catch
