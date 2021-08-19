@@ -8,14 +8,14 @@ namespace Datadog.Logging.Composition
     /// <summary>
     /// Collects data from a Log-sources and sends it to many Log Sinks.
     /// </summary>
-    //[System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0007:Use implicit type", Justification = "Worst piece of advise Style tools ever gave.")]
-    //[System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0028:Simplify collection initialization", Justification = "Rule does not add redability")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0007:Use implicit type", Justification = "Worst piece of advise Style tools ever gave.")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0028:Simplify collection initialization", Justification = "Rule does not add redability")]
     internal sealed class AggregatedLogSink : ILogSink, IDisposable
     {
         private readonly ILogSink[] _logSinks;
 
         public AggregatedLogSink(params ILogSink[] logSinks)
-            : this((IEnumerable<ILogSink>)logSinks)
+            : this((IEnumerable <ILogSink>) logSinks)
         {
         }
 

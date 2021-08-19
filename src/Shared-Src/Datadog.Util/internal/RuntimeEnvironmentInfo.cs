@@ -1,16 +1,13 @@
 ﻿#if NETCOREAPP || NETSTANDARD
-
 #define RUNTIMEINFORMATION_TYPE_AVAILABLE
-
 #endif
 
+using Datadog.Util;
 using System;
 using System.Reflection;
 
 #if RUNTIMEINFORMATION_TYPE_AVAILABLE
-
-using System.Runtime.InteropServices;
-
+    using System.Runtime.InteropServices;
 #endif
 
 namespace Datadog.Util
@@ -51,7 +48,7 @@ namespace Datadog.Util
                 RuntimeEnvironmentInfo singeltonInstance = s_singeltonInstance;
                 if (singeltonInstance == null)
                 {
-                    singeltonInstance = CreateNew();
+                    singeltonInstance = CreateNew();    
                     s_singeltonInstance = singeltonInstance;    // benign race
                 }
 
@@ -155,7 +152,7 @@ namespace Datadog.Util
             }
 
             string assemblyInfoVer = objectTypeAssembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
-
+            
             if (assemblyInfoVer != null)
             {
                 // Strip the git hash if there is one:
@@ -169,7 +166,7 @@ namespace Datadog.Util
                 int minusIndex = assemblyInfoVer.IndexOf('-');
                 if (minusIndex >= 0)
                 {
-                    assemblyInfoVer = assemblyInfoVer.Substring(0, minusIndex);
+                    assemblyInfoVer = assemblyInfoVer.Substring(0, plusIndex);
                 }
 
                 string runtimeVersion = assemblyInfoVer.Trim();
@@ -223,7 +220,7 @@ namespace Datadog.Util
         {
 #if RUNTIMEINFORMATION_TYPE_AVAILABLE
             string osDescription = RuntimeInformation.OSDescription;
-            if (false == String.IsNullOrWhiteSpace(osDescription))
+            if (! String.IsNullOrWhiteSpace(osDescription))
             {
                 return osDescription;
             }
@@ -234,7 +231,7 @@ namespace Datadog.Util
 #if RUNTIMEINFORMATION_TYPE_AVAILABLE
         private static string ArchitectureToString(Architecture architecture)
         {
-            switch (architecture)
+            switch(architecture)
             {
                 case Architecture.X86:
                     return "x86";
@@ -292,7 +289,7 @@ namespace Datadog.Util
             {
                 stringView = $"{RuntimeName} {RuntimeVersion} ({ProcessArchitecture}) running on {OsPlatform} {OsArchitecture}";
 
-                if (!String.IsNullOrWhiteSpace(OsDescription))
+                if (! String.IsNullOrWhiteSpace(OsDescription))
                 {
                     stringView = $"{stringView} ({OsDescription})";
                 }

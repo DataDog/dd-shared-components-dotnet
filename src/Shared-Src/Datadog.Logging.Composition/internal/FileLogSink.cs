@@ -7,13 +7,13 @@ using Datadog.Logging.Emission;
 
 namespace Datadog.Logging.Composition
 {
-    //[System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1308:Variable names must not be prefixed", Justification = "Should not apply to statics")]
-    //[System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1311:Static readonly fields must begin with upper-case letter", Justification = "Should only apply to vars that are logically const.")]
-    //[System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1116:Split parameters must start on line after declaration", Justification = "Bad rule")]
-    //[System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:Field names must not contain underscore", Justification = "Underscore aid visibility in long names")]
-    //[System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0007:Use implicit type", Justification = "Worst piece of advise Style tools ever gave.")]
-    //[System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1615:Element return value must be documented", Justification = "That would be great.")]
-    //[System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1611:Element parameters must be documented", Justification = "That would be great.")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1308:Variable names must not be prefixed", Justification = "Should not apply to statics")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1311:Static readonly fields must begin with upper-case letter", Justification = "Should only apply to vars that are logically const.")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1116:Split parameters must start on line after declaration", Justification = "Bad rule")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1310:Field names must not contain underscore", Justification = "Underscore aid visibility in long names")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0007:Use implicit type", Justification = "Worst piece of advise Style tools ever gave.")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1615:Element return value must be documented", Justification = "That would be great.")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1611:Element parameters must be documented", Justification = "That would be great.")]
     internal sealed class FileLogSink : ILogSink, IDisposable
     {
         public const int RotateLogFileWhenLargerBytesDefault = 1024 * 1024 * 128;  // 128 MB
@@ -113,7 +113,7 @@ namespace Datadog.Logging.Composition
                 throw new ArgumentNullException(nameof(logFileNameBase));
             }
 
-            if (String.IsNullOrWhiteSpace(logFileNameBase))
+            if (string.IsNullOrWhiteSpace(logFileNameBase))
             {
                 throw new ArgumentException($"{nameof(logFileNameBase)} may not be white-space only.", nameof(logFileNameBase));
             }
@@ -122,7 +122,7 @@ namespace Datadog.Logging.Composition
 
             newSink = null;
 
-            if (String.IsNullOrWhiteSpace(logFileDir))
+            if (string.IsNullOrWhiteSpace(logFileDir))
             {
                 return false;
             }
@@ -445,7 +445,7 @@ namespace Datadog.Logging.Composition
                         return false;
 
                     default:
-                        throw new InvalidOperationException($"Unexpected OS PlatformID: \"{platformID}\" ({((int)platformID)})");
+                        throw new InvalidOperationException($"Unexpected OS PlatformID: \"{platformID}\" ({((int) platformID)})");
                 }
             }
             catch
@@ -468,7 +468,7 @@ namespace Datadog.Logging.Composition
                 catch
                 { }
             }
-
+            
             return false;
         }
 
