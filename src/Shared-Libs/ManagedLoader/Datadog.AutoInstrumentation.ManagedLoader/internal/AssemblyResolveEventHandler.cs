@@ -89,7 +89,7 @@ namespace Datadog.AutoInstrumentation.ManagedLoader
             }
 
             // Is this an assembly which should be loaded from the product directory?
-            if (false == MustLoadAssemblyFromProductDirectory(assemblyName))
+            if (!MustLoadAssemblyFromProductDirectory(assemblyName))
             {
                 // No. Log and bail out.
                 if (Log.IsDebugLoggingEnabled)

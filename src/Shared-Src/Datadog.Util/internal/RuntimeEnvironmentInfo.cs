@@ -223,7 +223,7 @@ namespace Datadog.Util
         {
 #if RUNTIMEINFORMATION_TYPE_AVAILABLE
             string osDescription = RuntimeInformation.OSDescription;
-            if (false == String.IsNullOrWhiteSpace(osDescription))
+            if (!String.IsNullOrWhiteSpace(osDescription))
             {
                 return osDescription;
             }

@@ -179,7 +179,7 @@ namespace Datadog.AutoInstrumentation.ManagedLoader.Demo.Driver
                 return false;
             }
 
-            if (false == adData.Equals(TestDataExpectedValue))
+            if (!adData.Equals(TestDataExpectedValue))
             {
                 details = $"Target AppDomain has string Data under the expected key, however the value is \"{adData}\" whereas \"{TestDataExpectedValue}\" was expected.";
                 return false;

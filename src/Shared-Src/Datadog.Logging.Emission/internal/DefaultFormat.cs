@@ -299,7 +299,7 @@ namespace Datadog.Logging.Emission
                     targetBuffer.Append(": ");
                 }
 
-                if (false == String.IsNullOrWhiteSpace(message))
+                if (!String.IsNullOrWhiteSpace(message))
                 {
                     targetBuffer.Append(message);
 
