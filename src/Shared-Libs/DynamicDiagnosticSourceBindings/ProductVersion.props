@@ -50,17 +50,17 @@
             )
     )</ProductVersionTimestamp>
 
-    <!-- 'BuildTimestamp' does not have the same 16-bit restriction as 'ProductVersionTimestamp'. So we use a desctriprive date timestamp. -->
+    <!-- 'BuildTimestamp' does not have the same 16-bit restriction as 'ProductVersionTimestamp'. So we use a descriptive date timestamp. -->
     <BuildTimestamp>$([System.DateTime]::UtcNow.ToString('yyyyMMddHHmmss'))</BuildTimestamp>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(ProductVersionPrerelease) == ''">
-    <!-- If 'ProductVersionPrerelease' is NOT set, then 'ProductVersionMonikerSuffix' only has the build matadata consisting of 'BuildTimestamp'. -->
+    <!-- If 'ProductVersionPrerelease' is NOT set, then 'ProductVersionMonikerSuffix' only has the build metadata consisting of 'BuildTimestamp'. -->
     <ProductVersionMonikerSuffix>+$(BuildTimestamp)</ProductVersionMonikerSuffix>
   </PropertyGroup>
   <PropertyGroup Condition="$(ProductVersionPrerelease) != ''">
     <!-- If 'ProductVersionPrerelease' is set, then 'ProductVersionMonikerSuffix' is comprised        -->
-	<!-- of the prerelease ('ProductVersionPrerelease') and of the build matadata ('BuildTimestamp'). -->
+	<!-- of the prerelease ('ProductVersionPrerelease') and of the build metadata ('BuildTimestamp'). -->
 	<!-- See also https://semver.org/ and https://regex101.com/r/Ly7O1x/3/                            -->
     <!-- We also need to turn off the warning about SemVer 2 (https://docs.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu5105).        -->
     <NoWarn>NU5105</NoWarn>
