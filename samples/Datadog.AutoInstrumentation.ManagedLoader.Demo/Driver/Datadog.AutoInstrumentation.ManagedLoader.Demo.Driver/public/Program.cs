@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.ExceptionServices;
-using System.Security.Principal;
 
 namespace Datadog.AutoInstrumentation.ManagedLoader.Demo.Driver
 {
