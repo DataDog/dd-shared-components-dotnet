@@ -1,3 +1,5 @@
+# !! The code in this project is vendired (copied) from another repo. We do not intend to modify them.
+# !! We turn off all code styles enforcement for these files in order to avoid the need to change them and to avoid noise in our build.
 
 #root = FALSE
 
