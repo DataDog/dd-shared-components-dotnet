@@ -68,22 +68,22 @@ dotnet_diagnostic.IDE0007.severity = silent ##override of: silent  # Use 'var' i
 dotnet_diagnostic.IDE0008.severity = silent ##override of: error  # Use explicit type instead of 'var'
 
 # Expression-bodied members
-dotnet_diagnostic.IDE0027.severity = silent ##override of: silent
+dotnet_diagnostic.IDE0027.severity = silent ##override of: suggestion
 
 dotnet_diagnostic.IDE0021.severity = silent ##override of: error  # Use expression body for constructors
 
-dotnet_diagnostic.IDE0026.severity = silent ##override of: silent  # Use expression body for indexers 
+dotnet_diagnostic.IDE0026.severity = silent ##override of: suggestion  # Use expression body for indexers 
 
-dotnet_diagnostic.IDE0053.severity = silent ##override of: silent  # Use expression body for lambdas
+dotnet_diagnostic.IDE0053.severity = silent ##override of: suggestion  # Use expression body for lambdas
 
 dotnet_diagnostic.IDE0061.severity = silent ##override of: error  # Use expression body for local functions 
 
 dotnet_diagnostic.IDE0022.severity = silent ##override of: error  # Use expression body for methods
 
-dotnet_diagnostic.IDE0023.severity = silent ##override of: silent  # Use expression body for conversion operators
-dotnet_diagnostic.IDE0024.severity = silent ##override of: silent  # Use expression body for operators
+dotnet_diagnostic.IDE0023.severity = silent ##override of: suggestion  # Use expression body for conversion operators
+dotnet_diagnostic.IDE0024.severity = silent ##override of: suggestion  # Use expression body for operators
 
-dotnet_diagnostic.IDE0025.severity = silent ##override of: silent  # Use expression body for properties
+dotnet_diagnostic.IDE0025.severity = silent ##override of: suggestion  # Use expression body for properties
 
 # Pattern matching preferences
 dotnet_diagnostic.IDE0019.severity = silent ##override of: suggestion  # Use pattern matching to avoid 'as' followed by a 'null' check
@@ -148,7 +148,7 @@ dotnet_diagnostic.IDE0077.severity = silent ##override of: error       # Avoid l
 dotnet_diagnostic.IDE0001.severity = silent ##override of: silent      # Simplify name 
 dotnet_diagnostic.IDE0002.severity = silent ##override of: silent      # Simplify member access  
 dotnet_diagnostic.IDE0004.severity = silent ##override of: silent      # Remove unnecessary cast
-dotnet_diagnostic.IDE0005.severity = silent ##override of: silent      # Remove unnecessary import
+dotnet_diagnostic.IDE0005.severity = silent ##override of: warning     # Remove unnecessary import
 dotnet_diagnostic.IDE0035.severity = silent ##override of: suggestion  # Remove unreachable code
 dotnet_diagnostic.IDE0051.severity = silent ##override of: warning     # Remove unused private member  
 dotnet_diagnostic.IDE0052.severity = silent ##override of: warning     # Remove unread private member 
@@ -163,4 +163,4 @@ dotnet_diagnostic.IDE0090.severity = silent ##override of: suggestion  # Simplif
 
 #### Naming styles ####
 
-dotnet_diagnostic.IDE1006.severity = silent ##override of: silent  # Naming rule violation 
+dotnet_diagnostic.IDE1006.severity = silent ##override of: error  # Naming rule violation 
